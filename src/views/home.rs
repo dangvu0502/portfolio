@@ -1,4 +1,4 @@
-use crate::components::{Hero, ProjectCard};
+use crate::components::{Contact, Hero, Projects, Skills};
 use dioxus::prelude::*;
 
 /// The Home page component that will be rendered when the current route is `[Route::Home]`
@@ -6,6 +6,8 @@ use dioxus::prelude::*;
 pub fn Home() -> Element {
     rsx! {
         Hero {},
-        ProjectCard {}
+        Projects {},
+        Skills {},
+        Contact {}
     }
 }

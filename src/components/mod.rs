@@ -15,4 +15,13 @@ mod footer;
 pub use footer::Footer;
 
 mod project_card;
-pub use project_card::ProjectCard;
+pub use project_card::{Project, ProjectCard};
+
+mod projects;
+pub use projects::Projects;
+
+mod skills;
+pub use skills::Skills;
+
+mod contact;
+pub use contact::Contact;
