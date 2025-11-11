@@ -8,3 +8,6 @@
 
 # Environment variables (contains secrets)
 .env
+
+# Dioxus
+dist/
