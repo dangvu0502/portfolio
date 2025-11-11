@@ -1,10 +1,33 @@
 use dioxus::prelude::*;
+use serde::Deserialize;
 
-#[derive(Clone, PartialEq, Props)]
+#[derive(Clone, PartialEq, Props, Deserialize)]
 pub struct OSSContribution {
     pub repository: String,
     pub pr_number: String,
     pub link: Option<String>,
+    #[serde(skip)]
+    #[props(default)]
+    pub title: Option<String>,
+    #[serde(skip)]
+    #[props(default)]
+    pub state: Option<String>,
+    #[serde(skip)]
+    #[props(default)]
+    pub created_at: Option<String>,
+    #[serde(skip)]
+    #[props(default)]
+    pub updated_at: Option<String>,
+}
+
+/// Load OSS contributions from the generated JSON file
+pub fn load_oss_contributions() -> Vec<OSSContribution> {
+    const OSS_DATA: &str = include_str!("../../data/oss-contributions.json");
+
+    serde_json::from_str(OSS_DATA).unwrap_or_else(|e| {
+        eprintln!("Failed to parse OSS contributions: {}", e);
+        vec![]
+    })
 }
 
 #[component]

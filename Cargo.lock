@@ -3407,6 +3407,8 @@ version = "0.1.0"
 dependencies = [
  "dioxus",
  "dioxus-primitives",
+ "serde",
+ "serde_json",
 ]
 
 [[package]]

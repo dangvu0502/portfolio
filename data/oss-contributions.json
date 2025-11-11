@@ -1,0 +1,65 @@
+[
+  {
+    "repository": "tensorzero/tensorzero",
+    "pr_number": "3815",
+    "link": "https://github.com/tensorzero/tensorzero/pull/3815",
+    "title": "Log INFO when dynamic tools not in allowed_tools",
+    "state": "closed",
+    "created_at": "2025-10-04T15:37:55Z",
+    "updated_at": "2025-10-05T17:41:27Z"
+  },
+  {
+    "repository": "tensorzero/tensorzero",
+    "pr_number": "3714",
+    "link": "https://github.com/tensorzero/tensorzero/pull/3714",
+    "title": "Only require max_tokens when token rate limits apply",
+    "state": "closed",
+    "created_at": "2025-09-26T19:23:09Z",
+    "updated_at": "2025-10-02T15:18:52Z"
+  },
+  {
+    "repository": "tensorzero/tensorzero",
+    "pr_number": "3625",
+    "link": "https://github.com/tensorzero/tensorzero/pull/3625",
+    "title": "Make ChatCompletion, BestOfN, MixtureOfN, ChainOfThought config fields private with getters",
+    "state": "closed",
+    "created_at": "2025-09-23T09:41:53Z",
+    "updated_at": "2025-09-25T09:47:23Z"
+  },
+  {
+    "repository": "tensorzero/tensorzero",
+    "pr_number": "3622",
+    "link": "https://github.com/tensorzero/tensorzero/pull/3622",
+    "title": "Add maxHeight prop to InputSnippet component",
+    "state": "closed",
+    "created_at": "2025-09-23T02:51:58Z",
+    "updated_at": "2025-09-25T15:12:06Z"
+  },
+  {
+    "repository": "tensorzero/tensorzero",
+    "pr_number": "3608",
+    "link": "https://github.com/tensorzero/tensorzero/pull/3608",
+    "title": "Replace hardcoded default function string with constant",
+    "state": "closed",
+    "created_at": "2025-09-22T02:55:33Z",
+    "updated_at": "2025-09-25T09:47:27Z"
+  },
+  {
+    "repository": "tensorzero/tensorzero",
+    "pr_number": "3600",
+    "link": "https://github.com/tensorzero/tensorzero/pull/3600",
+    "title": "Make DiclConfig fields private with getters",
+    "state": "closed",
+    "created_at": "2025-09-20T15:07:32Z",
+    "updated_at": "2025-09-22T20:53:24Z"
+  },
+  {
+    "repository": "tensorzero/tensorzero",
+    "pr_number": "3599",
+    "link": "https://github.com/tensorzero/tensorzero/pull/3599",
+    "title": "Add collapsible functionality to SnippetLayout",
+    "state": "closed",
+    "created_at": "2025-09-20T09:27:26Z",
+    "updated_at": "2025-09-22T19:59:30Z"
+  }
+]

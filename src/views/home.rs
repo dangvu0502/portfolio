@@ -1,6 +1,7 @@
 use crate::components::{
-    Hero, OSSContribution, OSSContributionsSection, ProjectsSection,
+    Hero, OSSContributionsSection, ProjectsSection,
     WorkExperience, WorkExperienceSection, Project, RecentProjects, RecentProject,
+    load_oss_contributions,
 };
 use dioxus::prelude::*;
 
@@ -84,49 +85,8 @@ pub fn Home() -> Element {
         },
     ];
 
-    // OSS contributions data matching wireframe
-    let oss_contributions = vec![
-        OSSContribution {
-            repository: "langchain-ai/langchain-community".to_string(),
-            pr_number: "1137".to_string(),
-            link: Some("https://github.com/langchain-ai/langchain-community/pull/1137".to_string()),
-        },
-        OSSContribution {
-            repository: "verblwala/stripe-docs".to_string(),
-            pr_number: "130".to_string(),
-            link: Some("https://github.com/verblwala/stripe-docs/pull/130".to_string()),
-        },
-        OSSContribution {
-            repository: "vercel/next.js".to_string(),
-            pr_number: "56922".to_string(),
-            link: Some("https://github.com/vercel/next.js/pull/56922".to_string()),
-        },
-        OSSContribution {
-            repository: "supabase/supabase".to_string(),
-            pr_number: "110009".to_string(),
-            link: Some("https://github.com/supabase/supabase/pull/110009".to_string()),
-        },
-        OSSContribution {
-            repository: "mdouk/labs/modal-examples".to_string(),
-            pr_number: "140".to_string(),
-            link: Some("https://github.com/mdouk/labs/modal-examples/pull/140".to_string()),
-        },
-        OSSContribution {
-            repository: "nuxt/docs".to_string(),
-            pr_number: "1799".to_string(),
-            link: Some("https://github.com/nuxt/docs/pull/1799".to_string()),
-        },
-        OSSContribution {
-            repository: "nuxt/docs".to_string(),
-            pr_number: "1737".to_string(),
-            link: Some("https://github.com/nuxt/docs/pull/1737".to_string()),
-        },
-        OSSContribution {
-            repository: "nodejs/node".to_string(),
-            pr_number: "24583".to_string(),
-            link: Some("https://github.com/nodejs/node/pull/24583".to_string()),
-        },
-    ];
+    // OSS contributions loaded from auto-generated JSON file
+    let oss_contributions = load_oss_contributions();
 
     let projects = vec![
         Project {
