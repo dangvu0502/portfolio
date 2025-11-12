@@ -1,16 +1,18 @@
 [application]
 
 [web.app]
-
 # HTML title tag content
 title = "portfolio"
-base_path = "portfolio"
+# Set base_path to empty string to serve from root URL
 
 # include `assets` in web platform
 [web.resource]
 
 # Additional CSS style files
-style = []
+style = [
+  "/assets/styling/main.css",
+  "/assets/tailwind.css",
+]
 
 # Additional JavaScript files
 script = []
