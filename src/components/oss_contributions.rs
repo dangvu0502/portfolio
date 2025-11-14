@@ -20,14 +20,14 @@ pub struct OSSContribution {
     pub updated_at: Option<String>,
 }
 
-/// Load OSS contributions from the generated JSON file
-pub fn load_oss_contributions() -> Vec<OSSContribution> {
-    const OSS_DATA: &str = include_str!("../../data/oss-contributions.json");
-
-    serde_json::from_str(OSS_DATA).unwrap_or_else(|e| {
-        eprintln!("Failed to parse OSS contributions: {}", e);
-        vec![]
-    })
+impl OSSContribution {
+    pub fn from_json() -> Vec<OSSContribution> {
+        const OSS_DATA: &str = include_str!("../../data/oss-contributions.json");
+        serde_json::from_str(OSS_DATA).unwrap_or_else(|e| {
+            eprintln!("Failed to parse OSS contributions: {}", e);
+            vec![]
+        })
+    }
 }
 
 #[component]

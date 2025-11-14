@@ -1,6 +1,7 @@
 use dioxus::prelude::*;
+use serde::Deserialize;
 
-#[derive(Clone, PartialEq, Props)]
+#[derive(Clone, PartialEq, Props, Deserialize)]
 pub struct WorkExperience {
     pub company: String,
     pub role: String,
@@ -8,6 +9,16 @@ pub struct WorkExperience {
     pub dates: String,
     pub logo: Option<String>,
     pub link: Option<String>,
+}
+
+impl WorkExperience {
+    pub fn from_json() -> Vec<WorkExperience> {
+        const WORK_EXPERIENCES_DATA: &str = include_str!("../../data/work-experience.json");
+        serde_json::from_str(WORK_EXPERIENCES_DATA).unwrap_or_else(|e| {
+            eprintln!("Failed to parse work experiences: {}", e);
+            vec![]
+        })
+    }
 }
 
 #[component]

@@ -1,0 +1,19 @@
+[
+  {
+    "company": "Example Company",
+    "role": "Software Engineer",
+    "location": "San Francisco, CA",
+    "dates": "2023 - Present",
+    "logo": "https://via.placeholder.com/100",
+    "link": "https://github.com/yourusername"
+  },
+  {
+    "company": "Another Company",
+    "role": "Senior Developer",
+    "location": "Remote",
+    "dates": "2021 - 2023",
+    "logo": null,
+    "link": null
+  }
+]
+

@@ -10,7 +10,7 @@ struct GitHubUser {
 }
 
 #[derive(Debug, Deserialize)]
-struct SearchResponse {
+struct PullRequestQueryResponse {
     items: Vec<PullRequest>,
 }
 
@@ -50,7 +50,7 @@ fn get_username(client: &reqwest::blocking::Client, token: &str) -> Result<Strin
         .header("Authorization", format!("Bearer {}", token))
         .header("Accept", "application/vnd.github+json")
         .header("X-GitHub-Api-Version", "2022-11-28")
-        .header("User-Agent", "fetch-oss-contributions")
+        .header("User-Agent", "fetch-github-user")
         .send()
         .context("Failed to fetch GitHub user")?;
 
@@ -94,7 +94,7 @@ fn fetch_user_pull_requests(
         );
     }
 
-    let search_response: SearchResponse = response
+    let search_response: PullRequestQueryResponse = response
         .json()
         .context("Failed to parse search response")?;
     Ok(search_response.items)
@@ -122,6 +122,71 @@ fn transform_pr_data(prs: Vec<PullRequest>) -> Vec<OSSContribution> {
         .collect()
 }
 
+
+#[derive(Debug, Deserialize)]
+struct Repository {
+    full_name: String,
+    description: Option<String>,
+    tags_url: String,
+    html_url: String,
+}
+
+#[derive(Debug, Deserialize)]
+struct RepositoryQueryResponse {
+    items: Vec<Repository>,
+}
+
+#[derive(Debug, Serialize)]
+struct Project {
+    title: String,
+    description: Option<String>,
+    tags: Vec<String>,
+    link: String,
+}
+
+fn fetch_user_repositories(
+    client: &reqwest::blocking::Client,
+    token: &str,
+    username: &str,
+) -> Result<Vec<Repository>> {
+    let query = format!("user:{}", username);
+    let url = format!(
+        "https://api.github.com/search/repositories?q={}&sort=updated&order=desc&per_page=5",
+        urlencoding::encode(&query)
+    );
+    let response = client.get(&url)
+        .header("Authorization", format!("Bearer {}", token))
+        .header("Accept", "application/vnd.github+json")
+        .header("X-GitHub-Api-Version", "2022-11-28")
+        .header("User-Agent", "fetch-user-repositories")
+        .send()
+        .context("Failed to fetch repositories")?;
+    if !response.status().is_success() {
+        anyhow::bail!(
+            "GitHub API request failed: {} {}",
+            response.status(),
+            response.text().unwrap_or_default()
+        );
+    }
+    let repositories: RepositoryQueryResponse = response.json().context("Failed to parse repositories response")?;
+    Ok(repositories.items)
+}
+
+fn transform_repository_data(repositories: Vec<Repository>) -> Vec<Project> {
+    repositories.into_iter()
+        .map(|repository| {
+            // let tags = fetch_repository_tags(client, token, &repository.tag_url)?;
+            // let tags = tags.into_iter().map(|tag| tag.name).collect();
+            Project {
+                title: repository.full_name,
+                description: repository.description,
+                tags: vec![],
+                link: repository.html_url,
+            }
+        })
+        .collect()
+}
+
 fn main() -> Result<()> {
     println!("Fetching OSS contributions...");
 
@@ -131,39 +196,51 @@ fn main() -> Result<()> {
     let username = get_username(&client, &token)?;
     println!("Fetching PRs for user: {}", username);
 
+    let repositories = fetch_user_repositories(&client, &token, &username)?;
+    println!("Found {} repositories", repositories.len());
+
+    let projects = transform_repository_data(repositories);
+    println!("Found {} projects", projects.len());
+
     let prs = fetch_user_pull_requests(&client, &token, &username)?;
     println!("Found {} pull requests", prs.len());
 
     let contributions = transform_pr_data(prs);
 
     // Determine output path relative to project root
-    let output_path = PathBuf::from(env::current_dir()?)
+    let oss_contributions_output_path = PathBuf::from(env::current_dir()?)
         .join("data")
         .join("oss-contributions.json");
+    let projects_output_path = PathBuf::from(env::current_dir()?)
+        .join("data")
+        .join("projects.json");
 
     // Ensure data directory exists
-    if let Some(parent) = output_path.parent() {
+    if let Some(parent) = oss_contributions_output_path.parent() {
+        fs::create_dir_all(parent).context("Failed to create data directory")?;
+    }
+    if let Some(parent) = projects_output_path.parent() {
         fs::create_dir_all(parent).context("Failed to create data directory")?;
     }
 
-    let json = serde_json::to_string_pretty(&contributions)
+    let oss_contributions_json = serde_json::to_string_pretty(&contributions)
         .context("Failed to serialize contributions")?;
+    let projects_json = serde_json::to_string_pretty(&projects)
+        .context("Failed to serialize projects")?;
 
-    fs::write(&output_path, json).context("Failed to write output file")?;
+    fs::write(&oss_contributions_output_path, oss_contributions_json).context("Failed to write output file")?;
+    fs::write(&projects_output_path, projects_json).context("Failed to write output file")?;
 
     println!(
         "Successfully saved {} contributions to {}",
         contributions.len(),
-        output_path.display()
+        oss_contributions_output_path.display()
     );
-
-    // Print summary
-    let open_prs = contributions.iter().filter(|pr| pr.state == "open").count();
-    let closed_prs = contributions
-        .iter()
-        .filter(|pr| pr.state == "closed")
-        .count();
-    println!("Summary: {} open, {} closed/merged", open_prs, closed_prs);
+    println!(
+        "Successfully saved {} projects to {}",
+        projects.len(),
+        projects_output_path.display()
+    );
 
     Ok(())
 }

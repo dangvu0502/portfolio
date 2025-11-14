@@ -15,8 +15,8 @@ pub fn Hero() -> Element {
 
                     // Avatar
                     img {
-                        src: "https://via.placeholder.com/80",
-                        alt: "Matt Dangvu's avatar",
+                        src: "https://avatars.githubusercontent.com/u/57172125",
+                        alt: "Matt's avatar",
                         class: "w-20 h-20 rounded-full border-2 border-[#c46846] object-cover"
                     }
 
@@ -73,12 +73,17 @@ pub fn Hero() -> Element {
 
                     p {
                         class: "mb-4 text-base leading-relaxed",
-                        dangerous_inner_html: "I'm <strong>Matt Dangvu</strong>, a fullstack developer and solofounder based in Japan and Canada."
+                        dangerous_inner_html: "I'm <strong>Dang Vu (Matt)</strong>, a fullstack developer based in Vietnam."
                     }
 
                     p {
                         class: "mb-4 text-base leading-relaxed",
-                        "Building performant, AI-powered web experiences with modern frameworks. Currently exploring Rust and WebAssembly."
+                        "Building performant, AI-powered web experiences with modern frameworks."
+                    }
+
+                    p {
+                        class: "mb-4 text-base leading-relaxed",
+                        "Currently exploring Rust and WebAssembly."
                     }
 
                     a {

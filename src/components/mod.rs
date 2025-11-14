@@ -18,7 +18,7 @@ mod work_experience;
 pub use work_experience::{WorkExperience, WorkExperienceSection};
 
 mod oss_contributions;
-pub use oss_contributions::{OSSContribution, OSSContributionsSection, load_oss_contributions};
+pub use oss_contributions::{OSSContributionsSection, OSSContribution};
 
 mod projects;
 pub use projects::{Project, ProjectsSection};
