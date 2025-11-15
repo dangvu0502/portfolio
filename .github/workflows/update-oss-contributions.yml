@@ -5,7 +5,8 @@ on:
     # Runs on the 1st of every month at 00:00 UTC
     - cron: '0 0 1 * *'
   workflow_dispatch: # Allows manual triggering
-
+permissions:
+  contents: write
 jobs:
   update-contributions:
     runs-on: ubuntu-latest
@@ -31,11 +32,12 @@ jobs:
       - name: Fetch OSS contributions
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: dangvu0502
         run: cargo run --manifest-path scripts/fetch-oss-contributions/Cargo.toml
 
       - name: Commit and push if changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add data/oss-contributions.json
+          git add data/oss-contributions.json data/projects.json
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update OSS contributions data [skip ci]" && git push)
