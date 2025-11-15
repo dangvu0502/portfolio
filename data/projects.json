@@ -1,18 +1,32 @@
 [
   {
-    "name": "My Awesome Project",
-    "description": "A cool project I built that does amazing things",
-    "link": "https://github.com/yourusername/awesome-project"
+    "name": "dangvu0502/dangvu0502.github.io",
+    "description": null,
+    "tags": [],
+    "link": "https://github.com/dangvu0502/dangvu0502.github.io"
   },
   {
-    "name": "Another Project",
-    "description": "Another interesting project with great features",
-    "link": "https://github.com/yourusername/another-project"
+    "name": "dangvu0502/ebay-sync",
+    "description": null,
+    "tags": [],
+    "link": "https://github.com/dangvu0502/ebay-sync"
   },
   {
-    "name": "Another Project",
-    "description": "Another interesting project with great features",
-    "link": "https://github.com/yourusername/another-project"
+    "name": "dangvu0502/book-my-spot",
+    "description": null,
+    "tags": [],
+    "link": "https://github.com/dangvu0502/book-my-spot"
+  },
+  {
+    "name": "dangvu0502/homework-pinecone",
+    "description": null,
+    "tags": [],
+    "link": "https://github.com/dangvu0502/homework-pinecone"
+  },
+  {
+    "name": "dangvu0502/fastapi-react",
+    "description": "FastAPI + React Full-Stack Template",
+    "tags": [],
+    "link": "https://github.com/dangvu0502/fastapi-react"
   }
 ]
-

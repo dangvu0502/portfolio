@@ -138,7 +138,7 @@ struct RepositoryQueryResponse {
 
 #[derive(Debug, Serialize)]
 struct Project {
-    title: String,
+    name: String,
     description: Option<String>,
     tags: Vec<String>,
     link: String,
@@ -178,7 +178,7 @@ fn transform_repository_data(repositories: Vec<Repository>) -> Vec<Project> {
             // let tags = fetch_repository_tags(client, token, &repository.tag_url)?;
             // let tags = tags.into_iter().map(|tag| tag.name).collect();
             Project {
-                title: repository.full_name,
+                name: repository.full_name,
                 description: repository.description,
                 tags: vec![],
                 link: repository.html_url,

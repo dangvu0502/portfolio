@@ -3,7 +3,7 @@ use serde::Deserialize;
 
 #[derive(Clone, PartialEq, Props, Deserialize)]
 pub struct RecentProject {
-    pub title: String,
+    pub name: String,
     pub description: Option<String>,
     pub tags: Vec<String>,
     pub link: String,
@@ -61,7 +61,7 @@ pub fn RecentProjectCard(recent_project: RecentProject) -> Element {
 
             h3 {
                 class: "text-[#c46846] text-lg mb-3 font-semibold",
-                "{recent_project.title}"
+                "{recent_project.name}"
             }
 
             div {
