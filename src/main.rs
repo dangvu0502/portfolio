@@ -3,7 +3,7 @@
 use dioxus::prelude::*;
 
 use components::{Layout};
-use views::{Blog, Home};
+use views::{Home};
 
 /// Define a components module that contains all shared components for our app.
 mod components;
@@ -25,17 +25,10 @@ enum Route {
         // the component for that route will be rendered. The component name that is rendered defaults to the variant name.
         #[route("/")]
         Home {},
-        // The route attribute can include dynamic parameters that implement [`std::str::FromStr`] and [`std::fmt::Display`] with the `:` syntax.
-        // In this case, id will match any integer like `/blog/123` or `/blog/-456`.
-        #[route("/blog/:id")]
-        // Fields of the route variant will be passed to the component as props. In this case, the blog component must accept
-        // an `id` prop of type `i32`.
-        Blog { id: i32 },
 }
 
 // We can import assets in dioxus with the `asset!` macro. This macro takes a path to an asset relative to the crate root.
 // The macro returns an `Asset` type that will display as the path to the asset in the browser or a local path in desktop bundles.
-const FAVICON: Asset = asset!("/assets/favicon.ico");
 // The asset macro also minifies some assets like CSS and JS to make bundled smaller
 const MAIN_CSS: Asset = asset!("/assets/styling/main.css");
 const TAILWIND_CSS: Asset = asset!("/assets/tailwind.css");
@@ -56,9 +49,10 @@ fn App() -> Element {
     rsx! {
         // In addition to element and text (which we will see later), rsx can contain other components. In this case,
         // we are using the `document::Link` component to add a link to our favicon and main CSS file into the head of our app.
-        document::Link { rel: "icon", href: FAVICON }
+        document::Link { rel: "icon", href: "https://avatars.githubusercontent.com/u/57172125" }
         document::Link { rel: "stylesheet", href: MAIN_CSS }
         document::Link { rel: "stylesheet", href: TAILWIND_CSS }
+        document::Title { "Dang Vu (Matt) - Portfolio" }
 
         // The router component renders the route enum we defined above. It will handle synchronization of the URL and render
         // the layouts and components for the active route.
