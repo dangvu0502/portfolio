@@ -2,8 +2,6 @@ use dioxus::prelude::*;
 
 #[component] 
 pub fn Footer() -> Element {
-    // Get current year
-    let year = 2025; // In a real app, you'd get this from chrono or similar
 
     rsx! {
         footer {
@@ -14,7 +12,7 @@ pub fn Footer() -> Element {
 
                 p {
                     class: "text-[#6b7280] text-sm",
-                    "Matt B © {year}"
+                    "Built with ❤️ and Dioxus"
                 }
             }
         }

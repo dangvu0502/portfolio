@@ -971,6 +971,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "dioxus-free-icons"
+version = "0.10.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "28d356e0f9edad0930bc1cc76744360c0ecca020cb943acaadf42cb774f28284"
+dependencies = [
+ "dioxus",
+]
+
+[[package]]
 name = "dioxus-fullstack"
 version = "0.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3407,6 +3416,7 @@ name = "portfolio"
 version = "0.1.0"
 dependencies = [
  "dioxus",
+ "dioxus-free-icons",
  "dioxus-primitives",
  "serde",
  "serde_json",

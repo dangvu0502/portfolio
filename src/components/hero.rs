@@ -1,4 +1,7 @@
 use dioxus::prelude::*;
+use dioxus_free_icons::icons::ld_icons::{LdLinkedin, LdGithub, LdMail};
+use dioxus_free_icons::Icon;
+
 
 #[component]
 pub fn Hero() -> Element {
@@ -25,45 +28,45 @@ pub fn Hero() -> Element {
                         class: "flex gap-3 md:gap-4",
 
                         a {
-                            href: "https://twitter.com/yourusername",
+                            href: "https://github.com/dangvu0502",
                             target: "_blank",
                             rel: "noopener noreferrer",
-                            aria_label: "Twitter",
-                            class: "w-9 h-9 bg-[#1a1a1a] border border-[#2a2a2a] rounded-md flex items-center justify-center text-lg hover:bg-[#2a2a2a] hover:border-[#2a2a2a] hover:-translate-y-0.5 transition-all duration-300",
-                            "𝕏"
+                            aria_label: "GitHub",
+                            class: "w-9 h-9 bg-[#1a1a1a] border border-[#2a2a2a] rounded-md flex items-center justify-center hover:bg-[#2a2a2a] hover:border-[#2a2a2a] hover:-translate-y-0.5 transition-all duration-300",
+                            Icon {
+                                width: 30,
+                                height: 30,
+                                fill: "#e8dfd6",
+                                icon: LdGithub,
+                            }
                         }
 
                         a {
-                            href: "#",
-                            target: "_blank",
-                            rel: "noopener noreferrer",
-                            aria_label: "Lightning",
-                            class: "w-9 h-9 bg-[#1a1a1a] border border-[#2a2a2a] rounded-md flex items-center justify-center text-lg hover:bg-[#2a2a2a] hover:border-[#2a2a2a] hover:-translate-y-0.5 transition-all duration-300",
-                            "⚡"
+                            href: "mailto:dangvu0502@gmail.com",
+                            aria_label: "Email",
+                            class: "w-9 h-9 bg-[#1a1a1a] border border-[#2a2a2a] rounded-md flex items-center justify-center hover:bg-[#2a2a2a] hover:border-[#2a2a2a] hover:-translate-y-0.5 transition-all duration-300",
+                            Icon {
+                                width: 30,
+                                height: 30,
+                                fill: "#e8dfd6",
+                                icon: LdMail,
+                            }
                         }
 
                         a {
-                            href: "https://linkedin.com/in/yourusername",
+                            href: "https://www.linkedin.com/in/%C4%91%C4%83ng-v%C5%A9-a43920243/",
                             target: "_blank",
                             rel: "noopener noreferrer",
                             aria_label: "LinkedIn",
-                            class: "w-9 h-9 bg-[#1a1a1a] border border-[#2a2a2a] rounded-md flex items-center justify-center text-lg hover:bg-[#2a2a2a] hover:border-[#2a2a2a] hover:-translate-y-0.5 transition-all duration-300",
-                            "💼"
+                            class: "w-9 h-9 bg-[#1a1a1a] border border-[#2a2a2a] rounded-md flex items-center justify-center hover:bg-[#2a2a2a] hover:border-[#2a2a2a] hover:-translate-y-0.5 transition-all duration-300",
+                            Icon {
+                                width: 30,
+                                height: 30,
+                                fill: "#e8dfd6",
+                                icon: LdLinkedin,
+                            }
                         }
 
-                        a {
-                            href: "mailto:your.email@example.com",
-                            aria_label: "Email",
-                            class: "w-9 h-9 bg-[#1a1a1a] border border-[#2a2a2a] rounded-md flex items-center justify-center text-lg hover:bg-[#2a2a2a] hover:border-[#2a2a2a] hover:-translate-y-0.5 transition-all duration-300",
-                            "📧"
-                        }
-
-                        a {
-                            href: "#",
-                            aria_label: "Shop",
-                            class: "w-9 h-9 bg-[#1a1a1a] border border-[#2a2a2a] rounded-md flex items-center justify-center text-lg hover:bg-[#2a2a2a] hover:border-[#2a2a2a] hover:-translate-y-0.5 transition-all duration-300",
-                            "🛒"
-                        }
                     }
                 }
 
@@ -87,7 +90,7 @@ pub fn Hero() -> Element {
                     }
 
                     a {
-                        href: "#contact",
+                        href: "mailto:dangvu0502@gmail.com",
                         class: "inline-block mt-2.5 px-4 py-2 bg-[#c46846] text-white rounded-md font-medium hover:bg-[#b85a38] transition-colors duration-300",
                         "Hire me 🚀"
                     }
