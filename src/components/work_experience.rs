@@ -4,11 +4,11 @@ use serde::Deserialize;
 #[derive(Clone, PartialEq, Props, Deserialize)]
 pub struct WorkExperience {
     pub company: String,
+    pub company_site: Option<String>,
     pub role: String,
     pub location: String,
     pub dates: String,
     pub logo: Option<String>,
-    pub link: Option<String>,
 }
 
 impl WorkExperience {
@@ -51,6 +51,10 @@ pub fn WorkExperienceSection(experiences: Vec<WorkExperience>) -> Element {
 #[component]
 fn WorkExperienceItem(experience: WorkExperience) -> Element {
     rsx! {
+       a {
+        href: if let Some(company_site) = &experience.company_site { company_site.to_string() } else { "#".to_string() },
+        target: "_blank",
+        rel: "noopener noreferrer",
         div {
             class: "grid grid-cols-1 md:grid-cols-[60px_1fr_auto] gap-5 items-center bg-[#111111] border border-[#1f1f1f] rounded-xl p-5 hover:border-[#2a2a2a] transition-colors duration-300",
 
@@ -84,15 +88,6 @@ fn WorkExperienceItem(experience: WorkExperience) -> Element {
                     "{experience.role} - {experience.location}"
                 }
 
-                if let Some(link) = &experience.link {
-                    a {
-                        href: "{link}",
-                        target: "_blank",
-                        rel: "noopener noreferrer",
-                        class: "text-[#c46846] text-sm hover:text-[#d17a5a] transition-colors",
-                        "Here are my PRs →"
-                    }
-                }
             }
 
             // Dates
@@ -101,5 +96,6 @@ fn WorkExperienceItem(experience: WorkExperience) -> Element {
                 "{experience.dates}"
             }
         }
+       }
     }
 }

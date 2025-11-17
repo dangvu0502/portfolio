@@ -1,19 +1,19 @@
 [
   {
-    "company": "Example Company",
-    "role": "Software Engineer",
-    "location": "San Francisco, CA",
-    "dates": "2023 - Present",
-    "logo": "https://via.placeholder.com/100",
-    "link": "https://github.com/yourusername"
+    "company": "Bravebits",
+    "company_site": "https://bravebits.co/pages/product",
+    "role": "Full Stack Developer",
+    "location": "Vietnam",
+    "dates": "Sep 2022 - Aug 2025",
+    "logo": "bravebits-logo.svg"
   },
   {
-    "company": "Another Company",
-    "role": "Senior Developer",
-    "location": "Remote",
-    "dates": "2021 - 2023",
-    "logo": null,
-    "link": null
+    "company": "FPT Software",
+    "company_site": "https://example.com",
+    "role": "Developer Trainee",
+    "location": "Vietnam",
+    "dates": "Apr 2022 - Jul 2022",
+    "logo": "fpt-software-logo.svg"
   }
 ]
 

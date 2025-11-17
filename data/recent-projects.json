@@ -1,21 +1,36 @@
 [
   {
-    "name": "Recent Project 1",
-    "description": "A recent project I've been working on with modern technologies",
-    "tags": ["Rust", "Web", "Full Stack"],
-    "link": "https://github.com/yourusername/recent-project-1"
+    "name": "dangvu0502/dangvu0502.github.io",
+    "description": null,
+    "topics": [],
+    "link": "https://github.com/dangvu0502/dangvu0502.github.io"
   },
   {
-    "name": "Recent Project 2",
-    "description": "Another recent project showcasing my skills",
-    "tags": ["TypeScript", "React", "API"],
-    "link": "https://github.com/yourusername/recent-project-2"
+    "name": "dangvu0502/ebay-sync",
+    "description": null,
+    "topics": [],
+    "link": "https://github.com/dangvu0502/ebay-sync"
   },
   {
-    "name": "Recent Project 3",
-    "description": "A third project demonstrating various capabilities",
-    "tags": ["Python", "ML", "Data Science"],
-    "link": "https://github.com/yourusername/recent-project-3"
+    "name": "dangvu0502/book-my-spot",
+    "description": null,
+    "topics": [],
+    "link": "https://github.com/dangvu0502/book-my-spot"
+  },
+  {
+    "name": "dangvu0502/homework-pinecone",
+    "description": null,
+    "topics": [],
+    "link": "https://github.com/dangvu0502/homework-pinecone"
+  },
+  {
+    "name": "dangvu0502/fastapi-react",
+    "description": "FastAPI + React Full-Stack Template",
+    "topics": [
+      "fastapi",
+      "react",
+      "template"
+    ],
+    "link": "https://github.com/dangvu0502/fastapi-react"
   }
 ]
-

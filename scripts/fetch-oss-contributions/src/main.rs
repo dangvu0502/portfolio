@@ -127,7 +127,7 @@ fn transform_pr_data(prs: Vec<PullRequest>) -> Vec<OSSContribution> {
 struct Repository {
     full_name: String,
     description: Option<String>,
-    tags_url: String,
+    topics: Vec<String>,
     html_url: String,
 }
 
@@ -140,7 +140,7 @@ struct RepositoryQueryResponse {
 struct Project {
     name: String,
     description: Option<String>,
-    tags: Vec<String>,
+    topics: Vec<String>,
     link: String,
 }
 
@@ -180,7 +180,7 @@ fn transform_repository_data(repositories: Vec<Repository>) -> Vec<Project> {
             Project {
                 name: repository.full_name,
                 description: repository.description,
-                tags: vec![],
+                topics: repository.topics,
                 link: repository.html_url,
             }
         })
@@ -213,7 +213,7 @@ fn main() -> Result<()> {
         .join("oss-contributions.json");
     let projects_output_path = PathBuf::from(env::current_dir()?)
         .join("data")
-        .join("projects.json");
+        .join("recent-projects.json");
 
     // Ensure data directory exists
     if let Some(parent) = oss_contributions_output_path.parent() {

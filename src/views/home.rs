@@ -1,6 +1,6 @@
 use crate::components::{
-    Hero, OSSContributionsSection, ProjectsSection,
-    WorkExperience, WorkExperienceSection, Project, RecentProjects, RecentProject,
+    Hero, OSSContributionsSection, PinnedProjectsSection, RecentProjectsSection,
+    WorkExperience, WorkExperienceSection, Project,
     OSSContribution, 
 };
 use dioxus::prelude::*;
@@ -9,19 +9,20 @@ use dioxus::prelude::*;
 #[component]
 pub fn Home() -> Element {
     // Recent projects data
-    let recent_projects = RecentProject::from_json();
+    let recent_projects = Project::from_recent_projects_json();
+
+    let pinned_projects = Project::from_pinned_projects_json();
 
     let work_experiences = WorkExperience::from_json();
 
     let oss_contributions = OSSContribution::from_json();
 
-    let projects = Project::from_json();
 
     rsx! {
         Hero {},
-        RecentProjects { recent_projects: recent_projects },
+        PinnedProjectsSection { projects: pinned_projects },
         WorkExperienceSection { experiences: work_experiences },
         OSSContributionsSection { contributions: oss_contributions },
-        ProjectsSection { projects: projects },
+        RecentProjectsSection { projects: recent_projects },
     }
 }

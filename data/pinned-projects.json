@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Recent Project 1",
+    "description": "A recent project I've been working on with modern technologies",
+    "topics": ["Rust", "Web", "Full Stack"],
+    "link": "https://github.com/yourusername/recent-project-1"
+  },
+  {
+    "name": "Recent Project 2",
+    "description": "Another recent project showcasing my skills",
+    "topics": ["TypeScript", "React", "API"],
+    "link": "https://github.com/yourusername/recent-project-2"
+  },
+  {
+    "name": "Recent Project 3",
+    "description": "A third project demonstrating various capabilities",
+    "topics": ["Python", "ML", "Data Science"],
+    "link": "https://github.com/yourusername/recent-project-3"
+  }
+]
+

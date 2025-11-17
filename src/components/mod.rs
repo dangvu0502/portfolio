@@ -11,9 +11,6 @@ pub use layout::Layout;
 mod footer;
 pub use footer::Footer;
 
-mod recent_projects;
-pub use recent_projects::{RecentProjects, RecentProject};
-
 mod work_experience;
 pub use work_experience::{WorkExperience, WorkExperienceSection};
 
@@ -21,4 +18,4 @@ mod oss_contributions;
 pub use oss_contributions::{OSSContributionsSection, OSSContribution};
 
 mod projects;
-pub use projects::{Project, ProjectsSection};
+pub use projects::{Project, PinnedProjectsSection, RecentProjectsSection};
