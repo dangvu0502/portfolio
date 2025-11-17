@@ -1000,6 +1000,11 @@ video {
     padding-bottom: 5rem;
   }
 
+  .md\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   .md\:text-right {
     text-align: right;
   }

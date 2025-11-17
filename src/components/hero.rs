@@ -7,10 +7,10 @@ use dioxus_free_icons::Icon;
 pub fn Hero() -> Element {
     rsx! {
         header {
-            class: "py-12 md:py-16 border-b border-[#1f1f1f]",
+            class: "max-w-[1200px] mx-auto  py-12 md:py-16 border-b border-[#1f1f1f]",
 
             div {
-                class: "max-w-[1200px] mx-auto px-5 md:px-8",
+                class: "px-5 md:px-8",
 
                 // Avatar and Social Icons
                 div {

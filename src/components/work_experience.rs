@@ -26,10 +26,10 @@ pub fn WorkExperienceSection(experiences: Vec<WorkExperience>) -> Element {
     rsx! {
         section {
             id: "work",
-            class: "py-12 md:py-20 border-b border-[#1f1f1f]",
+            class: "max-w-[1200px] mx-auto py-12 md:py-20 border-b border-[#1f1f1f]",
 
             div {
-                class: "max-w-[1200px] mx-auto px-5 md:px-8",
+                class: "px-5 md:px-8",
 
                 h2 {
                     class: "text-2xl md:text-3xl text-white font-bold mb-8 md:mb-10",
