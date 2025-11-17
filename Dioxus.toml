@@ -2,17 +2,14 @@
 
 [web.app]
 # HTML title tag content
-title = "portfolio"
+title = "Dang Vu (Matt) - Portfolio"
 # Set base_path to empty string to serve from root URL
 
 # include `assets` in web platform
 [web.resource]
 
-# Additional CSS style files
-style = [
-  "/assets/styling/main.css",
-  "/assets/tailwind.css",
-]
+# CSS is now inlined in main.rs to prevent FOUC
+style = []
 
 # Additional JavaScript files
 script = []
